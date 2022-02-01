@@ -119,3 +119,17 @@ body {
 .gform_wrapper.gravity-theme .gfield-choice-input{
   appearance: auto;
 }
+
+.container_cards-atelier{
+  display: flex;
+}
+.container_cards-atelier .card_atelier{
+  margin: 0 .75rem;
+}
+.container_cards-atelier .card_atelier--info{
+  display: flex;
+  flex-direction: column;
+}
+.container_cards-atelier .card_atelier--info p{
+  margin: 5px 0;
+}
