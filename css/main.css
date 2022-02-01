@@ -122,9 +122,12 @@ body {
 
 .container_cards-atelier{
   display: flex;
+  flex-wrap: wrap;
 }
 .container_cards-atelier .card_atelier{
-  margin: 0 .75rem;
+  max-width: 300px;
+  margin: 0 1.25rem;
+  padding: 10px;
 }
 .container_cards-atelier .card_atelier--info{
   display: flex;
@@ -132,4 +135,8 @@ body {
 }
 .container_cards-atelier .card_atelier--info p{
   margin: 5px 0;
+}
+h1{
+  margin: 25px 0;
+  text-align: center;
 }
