@@ -49,7 +49,7 @@
                         <div class="header-user">
                             <button type="button" class="header-user_current" onClick="window.location.href = '<?php echo wp_logout_url(); ?>'">
                                 <span>Déconnecter <?php echo wp_get_current_user()->display_name; ?></span>
-                                <i class="fas fa-chevron-down"></i>
+                                <!-- <i class="fas fa-chevron-down"></i> -->
                             </button>
                         </div>
                         <?php wp_nav_menu(array('theme_location' => 'menu_principal')); ?>   

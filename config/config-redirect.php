@@ -4,9 +4,9 @@
 // }
 // add_filter( 'login_redirect', 'login_redirect', 1 );
 
-// add_filter( 'login_redirect', function( $url, $query, $user ) {
-//     return home_url();
-// }, 1, 3 );
+add_filter( 'login_redirect', function( $url, $query, $user ) {
+    return home_url();
+}, 1, 3 );
 
 // add_action("wp_login", function($user_login, $user) {
 //     wp_redirect(home_url());
