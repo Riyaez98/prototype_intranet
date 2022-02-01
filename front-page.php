@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 
 <main class="wrapper">
-    <!-- test push -->
+    <!-- push -->
     <?php component('calendar'); ?>
 
 </main>
