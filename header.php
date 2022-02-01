@@ -1,9 +1,8 @@
 <?php
-    var_dump(is_user_logged_in());
-    exit;
+
     if(!is_user_logged_in()) {
-        wp_redirect( get_site_url().'/login', 301 ); 
-        exit;
+
+        auth_redirect();
     }
 
     
@@ -48,8 +47,8 @@
 
                     <nav class="header-navigation">
                         <div class="header-user">
-                            <button type="button" class="header-user_current">
-                                <span><?php echo wp_get_current_user()->display_name; ?></span>
+                            <button type="button" class="header-user_current" onClick="window.location.href = '<?php echo wp_logout_url(); ?>'">
+                                <span>Déconnecter <?php echo wp_get_current_user()->display_name; ?></span>
                                 <i class="fas fa-chevron-down"></i>
                             </button>
                         </div>
