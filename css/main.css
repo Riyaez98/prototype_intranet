@@ -116,3 +116,6 @@ body {
 .header-navigation .menu ul li.page_item a {
   color: #070708;
 }
+.gform_wrapper.gravity-theme .gfield-choice-input{
+  appearance: auto;
+}
