@@ -20,7 +20,7 @@ function custom_admin_menu($menu_ord){
 
   //Enlève certaines pages
   remove_menu_page("edit.php");
-  remove_menu_page("plugins.php");
+  // remove_menu_page("plugins.php");
   remove_menu_page("edit-comments.php");
   
   // Spécifie les liens de menu dans l'ordre désiré
