@@ -21,6 +21,9 @@
                         <p>Date : <?php the_field('event_date'); ?></p>
                         <p>Heure : <?php the_field('event_starttime'); ?></p>
                         <p>Modératrice : <?php the_field('event_teacher'); ?></p>
+                        <button onClick="window.location.href = '<?php echo the_permalink(); ?>'">
+                            Modifier
+                        </button>
                     </div>
                 </div>
             <?php endwhile; ?>
