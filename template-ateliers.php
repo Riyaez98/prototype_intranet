@@ -14,13 +14,18 @@
         'post_type' => 'evenements',
         'post_status' => 'publish'
         )); ?>
+        
             <?php while (have_posts()) : the_post(); ?>
+            
                 <div class="card_atelier">
                     <h3><?php the_title(); ?></h3>
                     <div class="card_atelier--info">    
                         <p>Date : <?php the_field('event_date'); ?></p>
                         <p>Heure : <?php the_field('event_starttime'); ?></p>
-                        <p>Modératrice : <?php the_field('event_teacher'); ?></p>
+                        <?php $user = get_field('event_teacher');
+                        if( $user ): ?>
+                        <p>Modératrice : <?php echo $user->display_name;  ?></p>
+                        <?php endif; ?>
                         <button onClick="window.location.href = '<?php echo the_permalink(); ?>'">
                             Modifier
                         </button>

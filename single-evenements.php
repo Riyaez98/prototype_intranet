@@ -27,7 +27,7 @@
 
         <div class="info-atelier__item info-atelier__mod">
             <label for="moderatrice"> <strong> Modératrice : </strong></label>
-            <input type="text" id="moderatrice" name="moderatrice" value="<?php the_field('event_teacher');?>">
+            <input type="text" id="moderatrice" name="moderatrice" value="<?php echo the_field('event_teacher');?>">
         </div> 
 
         <div class="info-atelier__item info-atelier__partner">

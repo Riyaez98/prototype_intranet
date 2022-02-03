@@ -1,10 +1,11 @@
 <?php 
 
-##
-##
-##The following example dynamically populates a checkbox field with a list of published posts
-##
-##
+ #####   ####  #####  #    # #        ##   ##### ######  ####      ####  #    # ######  ####  #    # #####   ####  #    # 
+ #    # #    # #    # #    # #       #  #    #   #      #         #    # #    # #      #    # #   #  #    # #    #  #  #  
+ #    # #    # #    # #    # #      #    #   #   #####   ####     #      ###### #####  #      ####   #####  #    #   ##   
+ #####  #    # #####  #    # #      ######   #   #           #    #      #    # #      #      #  #   #    # #    #   ##   
+ #      #    # #      #    # #      #    #   #   #      #    #    #    # #    # #      #    # #   #  #    # #    #  #  #  
+ #       ####  #       ####  ###### #    #   #   ######  ####      ####  #    # ######  ####  #    # #####   ####  #    #
 
 
 //NOTE: update the '221' to the ID of your form
@@ -34,25 +35,7 @@ function populate_checkbox( $form ) {
  
         // update 'Select a Post' to whatever you'd like the instructive option to be
         $field->placeholder = 'test';
-        $field->choices = $choices;
-
-
-        // $input_id = 1;
-        // foreach( $posts as $post ) {
- 
-        //     //skipping index that are multiples of 10 (multiples of 10 create problems as the input IDs)
-        //     if ( $input_id % 10 == 0 ) {
-        //         $input_id++;
-        //     }
- 
-        //     $choices[] = array( 'text' => $post->post_title, 'value' => $post->post_title );
-        //     $inputs[] = array( 'label' => $post->post_title, 'id' => "{$field_id}.{$input_id}" );
- 
-        //     $input_id++;
-        // }
- 
-        // $field->choices = $choices;
-        // $field->inputs = $inputs;
+        $field->choices = $choices;        
  
     }
  
@@ -61,11 +44,13 @@ function populate_checkbox( $form ) {
 
 
 
-##
-##
-## This example dynamically populates a drop down, radio button or multi-select field with posts that are in the Business category.
-##
-##
+                                                                                                                                                                                                                                                                                                             
+ #####   ####  #####  #    # #        ##   ##### ######  ####     #####  #####   ####  #####     #####   ####  #    # #    #        #####    ##   #####  #  ####     #####  #    # ##### #####  ####  #    #     ####  #####     #    # #    # #      ##### #        ####  ###### #      ######  ####  ##### 
+ #    # #    # #    # #    # #       #  #    #   #      #         #    # #    # #    # #    #    #    # #    # #    # ##   #        #    #  #  #  #    # # #    #    #    # #    #   #     #   #    # ##   #    #    # #    #    ##  ## #    # #        #   #       #      #      #      #      #    #   #   
+ #    # #    # #    # #    # #      #    #   #   #####   ####     #    # #    # #    # #    #    #    # #    # #    # # #  #        #    # #    # #    # # #    #    #####  #    #   #     #   #    # # #  #    #    # #    #    # ## # #    # #        #   # #####  ####  #####  #      #####  #        #   
+ #####  #    # #####  #    # #      ######   #   #           #    #    # #####  #    # #####     #    # #    # # ## # #  # # ###    #####  ###### #    # # #    #    #    # #    #   #     #   #    # #  # #    #    # #####     #    # #    # #        #   #            # #      #      #      #        #   
+ #      #    # #      #    # #      #    #   #   #      #    #    #    # #   #  #    # #         #    # #    # ##  ## #   ## ###    #   #  #    # #    # # #    #    #    # #    #   #     #   #    # #   ##    #    # #   #     #    # #    # #        #   #       #    # #      #      #      #    #   #   
+ #       ####  #       ####  ###### #    #   #   ######  ####     #####  #    #  ####  #         #####   ####  #    # #    #  #     #    # #    # #####  #  ####     #####   ####    #     #    ####  #    #     ####  #    #    #    #  ####  ######   #   #        ####  ###### ###### ######  ####    #                                                                                                                                #                                                                                                                                                                               
 
 add_filter( 'gform_pre_render', 'populate_choices' );
  
@@ -83,33 +68,21 @@ function populate_choices( $form ) {
     if ( $form['id'] != 1 ) {
        return $form;
     }
- 
-    //Reading posts for "Business" category;
-    $args = array(
-        'post_type' => 'exercices'
-    );
-    $posts = get_posts($args);
- 
+
+    // The Query
+    $users = new WP_User_Query( array('exclude' => array()));
+
     //Creating item array.
     $items = array();
  
-    //Add a placeholder to field id 8, is not used with multi-select or radio, will overwrite placeholder set in form editor.
-    //Replace 8 with your actual field id.
-    // $fields = $form['fields'];
-    // foreach( $form['fields'] as &$field ) {
-    //   if ( $field->id == 8 ) {
-    //     $field->placeholder = 'This is my placeholder';
-    //   }
-    // }
- 
     //Adding post titles to the items array
-    foreach ( $posts as $post ) {
-        $items[] = array( 'value' => $post->post_title, 'text' => $post->post_title );
+    foreach ( $users->get_results() as $user ) {
+        $items[] = array( 'value' => $user->ID, 'text' => $user->display_name );
     }
- 
+
     //Adding items to field id 8. Replace 8 with your actual field id. You can get the field id by looking at the input name in the markup.
     foreach ( $form['fields'] as &$field ) {
-        if ( $field->id == 13 ) {
+        if ( $field->id == 7 ) {
             $field->choices = $items;
         }
     }
