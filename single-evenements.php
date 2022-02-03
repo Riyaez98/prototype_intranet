@@ -1,7 +1,6 @@
 <?php get_header(); ?>
 
 <main class="wrapper">
-    <!-- test push 02-02-2022 9h -->
 
     <h1><?php the_title(); ?></h1>
     
