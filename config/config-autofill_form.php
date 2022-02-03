@@ -26,22 +26,33 @@ function populate_checkbox( $form ) {
         // more info: http://codex.wordpress.org/Template_Tags/get_posts
         $posts = get_posts( 'numberposts=-1&post_status=publish&post_type=exercices' );
  
-        $input_id = 1;
-        foreach( $posts as $post ) {
+        $choices = array();
  
-            //skipping index that are multiples of 10 (multiples of 10 create problems as the input IDs)
-            if ( $input_id % 10 == 0 ) {
-                $input_id++;
-            }
- 
-            $choices[] = array( 'text' => $post->post_title, 'value' => $post->post_title );
-            $inputs[] = array( 'label' => $post->post_title, 'id' => "{$field_id}.{$input_id}" );
- 
-            $input_id++;
+        foreach ( $posts as $post ) {
+            $choices[] = array( 'text' => $post->post_title, 'value' => $post->ID );
         }
  
+        // update 'Select a Post' to whatever you'd like the instructive option to be
+        $field->placeholder = 'test';
         $field->choices = $choices;
-        $field->inputs = $inputs;
+
+
+        // $input_id = 1;
+        // foreach( $posts as $post ) {
+ 
+        //     //skipping index that are multiples of 10 (multiples of 10 create problems as the input IDs)
+        //     if ( $input_id % 10 == 0 ) {
+        //         $input_id++;
+        //     }
+ 
+        //     $choices[] = array( 'text' => $post->post_title, 'value' => $post->post_title );
+        //     $inputs[] = array( 'label' => $post->post_title, 'id' => "{$field_id}.{$input_id}" );
+ 
+        //     $input_id++;
+        // }
+ 
+        // $field->choices = $choices;
+        // $field->inputs = $inputs;
  
     }
  
