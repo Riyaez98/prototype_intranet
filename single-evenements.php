@@ -5,8 +5,14 @@
     <h1><?php the_title(); ?></h1>
     
     <!-- https://www.w3schools.com/tags/att_input_value.asp  predefine value input -->
-    <form action="/action_page.php" class="info-atelier">
+    <form action="/update.php" class="info-atelier" method="POST">
 
+        <div class="info-atelier__item info-atelier__date">
+            <label for="title"> <strong> Titre : </strong> </label>
+            <input type="text" id="title" name="title" 
+                value="<?php the_title();?>">
+        </div>     
+        
         <div class="info-atelier__item info-atelier__date">
             <label for="event-date"> <strong> Date : </strong> </label>
             <input type="date" id="event-date" name="event-date" 
@@ -27,7 +33,20 @@
 
         <div class="info-atelier__item info-atelier__mod">
             <label for="moderatrice"> <strong> Modératrice : </strong></label>
-            <input type="text" id="moderatrice" name="moderatrice" value="<?php echo the_field('event_teacher');?>">
+            <?php $moder = get_field('event_teacher');
+                        if( $moder ): 
+                        
+                            $users_list = new WP_User_Query( array('exclude' => array()));?>
+                            
+                            <?php foreach ( $users_list->get_results() as $user ) {
+                                if($moder == $user->ID){?>
+                                <!-- <p>Modératrice : </p> -->
+                                <input type="text" id="moderatrice" name="moderatrice" value="<?php echo $user->display_name;  ?>">                                    
+                        <?php
+                                }
+                            }
+                        ?>
+                        <?php endif; ?>
         </div> 
 
         <div class="info-atelier__item info-atelier__partner">

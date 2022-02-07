@@ -22,9 +22,18 @@
                     <div class="card_atelier--info">    
                         <p>Date : <?php the_field('event_date'); ?></p>
                         <p>Heure : <?php the_field('event_starttime'); ?></p>
-                        <?php $user = get_field('event_teacher');
-                        if( $user ): ?>
-                        <p>Modératrice : <?php echo $user->display_name;  ?></p>
+                        <?php $moder = get_field('event_teacher');
+                        if( $moder ): 
+                        
+                            $users_list = new WP_User_Query( array('exclude' => array()));?>
+                            
+                            <?php foreach ( $users_list->get_results() as $user ) {
+                                if($moder == $user->ID){?>
+                                <p>Modératrice : <?php echo $user->display_name;  ?></p>                                    
+                        <?php
+                                }
+                            }
+                        ?>
                         <?php endif; ?>
                         <button onClick="window.location.href = '<?php echo the_permalink(); ?>'">
                             Modifier

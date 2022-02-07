@@ -128,7 +128,7 @@ body {
 .container_cards-atelier {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 .container_cards-atelier .card_atelier {
   width: 300px;
@@ -163,7 +163,11 @@ h1 {
 .info-atelier__item label {
   align-self: center;
 }
-.info-atelier__item input,
-textarea {
+input,
+textarea,
+select {
   margin: 0 10px;
+  border: #2f3542 solid 1px;
+  /* -webkit-box-shadow: 5px 5px 11px 5px rgba(0, 0, 0, 0.25);
+  box-shadow: 5px 5px 5px 2px rgba(0, 0, 0, 0.25); */
 }
