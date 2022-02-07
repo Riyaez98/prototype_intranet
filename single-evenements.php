@@ -5,8 +5,9 @@
     <h1><?php the_title(); ?></h1>
     
     <!-- https://www.w3schools.com/tags/att_input_value.asp  predefine value input -->
-    <form action="/update.php" class="info-atelier" method="POST">
+    <form action="<?php bloginfo('template_url') ?>/update.php" class="info-atelier" method="POST">
 
+        <input style="display:none;" type="text" id="id" name="id" value="<?php the_ID(); ?>">
         <div class="info-atelier__item info-atelier__date">
             <label for="title"> <strong> Titre : </strong> </label>
             <input type="text" id="title" name="title" 
