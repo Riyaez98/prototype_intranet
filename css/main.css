@@ -1,37 +1,42 @@
 @font-face {
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-style: normal;
   font-weight: 300;
   font-display: swap;
-  src: url(https://fonts.gstatic.com/s/poppins/v19/pxiByp8kv8JHgFVrLDz8V1s.ttf) format('truetype');
+  src: url(https://fonts.gstatic.com/s/poppins/v19/pxiByp8kv8JHgFVrLDz8V1s.ttf)
+    format("truetype");
 }
 @font-face {
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url(https://fonts.gstatic.com/s/poppins/v19/pxiEyp8kv8JHgFVrFJA.ttf) format('truetype');
+  src: url(https://fonts.gstatic.com/s/poppins/v19/pxiEyp8kv8JHgFVrFJA.ttf)
+    format("truetype");
 }
 @font-face {
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-style: normal;
   font-weight: 500;
   font-display: swap;
-  src: url(https://fonts.gstatic.com/s/poppins/v19/pxiByp8kv8JHgFVrLGT9V1s.ttf) format('truetype');
+  src: url(https://fonts.gstatic.com/s/poppins/v19/pxiByp8kv8JHgFVrLGT9V1s.ttf)
+    format("truetype");
 }
 @font-face {
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-style: normal;
   font-weight: 600;
   font-display: swap;
-  src: url(https://fonts.gstatic.com/s/poppins/v19/pxiByp8kv8JHgFVrLEj6V1s.ttf) format('truetype');
+  src: url(https://fonts.gstatic.com/s/poppins/v19/pxiByp8kv8JHgFVrLEj6V1s.ttf)
+    format("truetype");
 }
 @font-face {
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-style: normal;
   font-weight: 700;
   font-display: swap;
-  src: url(https://fonts.gstatic.com/s/poppins/v19/pxiByp8kv8JHgFVrLCz7V1s.ttf) format('truetype');
+  src: url(https://fonts.gstatic.com/s/poppins/v19/pxiByp8kv8JHgFVrLCz7V1s.ttf)
+    format("truetype");
 }
 *,
 *::after,
@@ -46,18 +51,18 @@
 }
 button,
 input {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 #wpadminbar {
   display: none;
 }
 html.app {
-  margin-top: 0!important;
+  margin-top: 0 !important;
 }
 body {
   background-color: #fff;
   color: #070708;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 .app-container {
   width: 100%;
@@ -116,31 +121,49 @@ body {
 .header-navigation .menu ul li.page_item a {
   color: #070708;
 }
-.gform_wrapper.gravity-theme .gfield-choice-input{
+.gform_wrapper.gravity-theme .gfield-choice-input {
   appearance: auto;
 }
 
-.container_cards-atelier{
+.container_cards-atelier {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
 }
-.container_cards-atelier .card_atelier{
-  max-width: 300px;
-  margin: 0 1.25rem;
+.container_cards-atelier .card_atelier {
+  width: 300px;
+  margin: 1.25rem;
   padding: 10px;
 }
-.container_cards-atelier .card_atelier--info{
+.container_cards-atelier .card_atelier--info {
   display: flex;
   flex-direction: column;
 }
-.container_cards-atelier .card_atelier--info p{
+.container_cards-atelier .card_atelier--info p {
   margin: 5px 0;
 }
-h1{
+
+.container_cards-atelier .card_atelier--info button {
+  width: 50%;
+  margin: 5px 0;
+}
+
+.container_cards-atelier .card_atelier--info button:hover {
+  cursor: pointer;
+}
+
+h1 {
   margin: 25px 0;
   text-align: center;
 }
 .info-atelier__item {
   padding: 10px 0;
-  
+  display: flex;
+}
+.info-atelier__item label {
+  align-self: center;
+}
+.info-atelier__item input,
+textarea {
+  margin: 0 10px;
 }
