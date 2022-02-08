@@ -71,6 +71,23 @@ body {
 .wrapper {
   padding: 0 2rem;
 }
+
+.wrapper__creation{
+  display: flex;
+  justify-content: space-between;
+}
+
+.wrapper__creation .gform_wrapper.gravity-theme{
+  width: 46%;
+}
+
+#input_3_1 label{
+  display: none;
+}
+.gform_heading{
+  margin: 0 0 20px;
+}
+
 .header {
   width: 100%;
   background-color: #fff;

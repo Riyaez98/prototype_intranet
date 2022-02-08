@@ -89,4 +89,3 @@ register_post_type('moder',
       'menu_icon' => 'dashicons-businesswoman'
     )
 );
-remove_post_type_support( 'moder', 'editor' );
