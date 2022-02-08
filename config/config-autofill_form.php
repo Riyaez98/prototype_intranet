@@ -22,15 +22,20 @@ function populate_checkbox( $form ) {
         if ( $field->id != $field_id ) {
             continue;
         }
- 
+
+        
         // you can add additional parameters here to alter the posts that are retreieved
         // more info: http://codex.wordpress.org/Template_Tags/get_posts
         $posts = get_posts( 'numberposts=-1&post_status=publish&post_type=exercices' );
  
         $choices = array();
  
+            // $i=0;
+            // $exc[]=array();
         foreach ( $posts as $post ) {
-            $choices[] = array( 'text' => $post->post_title, 'value' => $post->ID );
+            // $choices[] = array( 'text' => $post->post_title, 'value' => $post->ID, 'name'=> $exc  );
+            $choices[] = array( 'text' => $post->post_title, 'value' => $post->ID);
+            // $i++;
         }
  
         // update 'Select a Post' to whatever you'd like the instructive option to be
