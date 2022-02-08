@@ -34,26 +34,18 @@
 
         <div class="info-atelier__item info-atelier__mod">
             <label for="moderatrice"> <strong> Modératrice : </strong></label>
-            <?php $moder = get_field('event_teacher');
-                        if( $moder ): 
-                        
-                            $users_list = new WP_User_Query( array('exclude' => array()));?>
-                            
-                            <?php foreach ( $users_list->get_results() as $user ) {
-                                if($moder == $user->ID){?>
-                                <!-- <p>Modératrice : </p> -->
-                                <input type="text" id="moderatrice" name="moderatrice" value="<?php echo $user->display_name;  ?>">                                    
-                        <?php
-                                }
-                            }
-                        ?>
-                        <?php endif; ?>
+             <input type="text" id="moderatrice" name="moderatrice" value="<?php the_field('event_teacher')?>">         
         </div> 
 
         <div class="info-atelier__item info-atelier__partner">
         <label for="partner"> <strong> Partenaire : </strong></label>
             <input type="text" id="partner" name="partner" value="<?php the_field('event_partner');?>">
         </div>  
+
+        <div class="info-atelier__item info-atelier__mod">
+            <label for="moderatrice"> <strong> Exercices : </strong></label>
+            <input type="text" id="moderatrice" name="moderatrice" value="<?php the_field('event_exercices')?>">         
+        </div> 
 
         <div class="info-atelier__item info-atelier__description">
             <label for="description"> <strong> Description : </strong></label>
