@@ -1,4 +1,4 @@
-            <footer class="footer wrapper">footer</footer>
+            <footer class="footer wrapper"> Danse contre la violence</footer>
             <?php wp_footer(); ?>
         </div>
     </body>

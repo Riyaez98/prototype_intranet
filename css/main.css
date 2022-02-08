@@ -173,9 +173,15 @@ h1 {
   margin: 25px 0;
   text-align: center;
 }
+.info-atelier{
+  width: 400px;
+  margin: 0 auto;
+}
+
 .info-atelier__item {
   padding: 10px 0;
   display: flex;
+  justify-content: space-between;
 }
 .info-atelier__item label {
   align-self: center;
@@ -186,4 +192,18 @@ select {
   margin: 0 10px;
   border: #2f3542 solid 1px;
   padding: 10px;
+}
+.info-atelier
+input,
+textarea{
+  width: 250px;
+
+}
+
+.footer{
+  margin-top: 50px;
+  background-color: #070708;
+  color:white;
+  text-align: center;
+  padding: 50px 0;
 }
