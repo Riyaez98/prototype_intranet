@@ -1,38 +1,7 @@
 <?php get_header(); 
 
+include(__DIR__ . '/update.php');
 
-if ( 'POST' == $_SERVER['REQUEST_METHOD'] && ! empty($_POST['post_id']) && ! empty($_POST['post_title']) && isset($_POST['update_post_nonce']) && isset($_POST['postcontent']) )
-{
-    $post_id   = $_POST['post_id'];
-    $post_type = get_post_type($post_id);
-    $capability = ( 'page' == $post_type ) ? 'edit_page' : 'edit_post';
-    if ( current_user_can($capability, $post_id) && wp_verify_nonce( $_POST['update_post_nonce'], 'update_post_'. $post_id ) )
-    {
-        $post = array(
-            'ID'             => esc_sql($post_id),
-            'post_content'   => esc_sql($_POST['postcontent']),
-            'post_title'     => esc_sql($_POST['post_title'])
-        );
-        $updatedPostID = wp_update_post($post);
-
-        //Image
-        require_once( ABSPATH . 'wp-admin/includes/image.php' );
-        require_once( ABSPATH . 'wp-admin/includes/file.php' );
-        require_once( ABSPATH . 'wp-admin/includes/media.php' );
-        $attachment_id = media_handle_upload( 'img', 55 );
-       
-        set_post_thumbnail($updatedPostID, $attachment_id);
-
-        if ( isset($_POST['materiel']) ) update_post_meta($post_id, 'materiel', esc_sql($_POST['materiel']) );
-        if ( isset($_POST['origin']) ) update_post_meta($post_id, 'origin', esc_sql($_POST['origin']) );
-
-        header("Location:" . $_SERVER['REQUEST_URI']);
-    }
-    else
-    {
-        wp_die("You can't do that");
-    }
-}
 ?>
 
 <main class="wrapper">
@@ -40,12 +9,13 @@ if ( 'POST' == $_SERVER['REQUEST_METHOD'] && ! empty($_POST['post_id']) && ! emp
     <h1><?php the_title(); ?></h1>
     
     <!-- https://www.w3schools.com/tags/att_input_value.asp  predefine value input -->
-    <form  class="info-atelier" method="POST" enctype="multipart/form-data">
+    <!-- <form  class="info-atelier" method="post" action="<?php bloginfo('template_url'); ?>/update.php"> -->
+    <form  class="info-atelier" method="POST" enctype="multipart/form-data" >
 
         <input style="display:none;" type="text" id="post_id" name="post_id" value="<?php the_ID(); ?>">
         <div class="info-atelier__item info-atelier__date">
             <label for="title"> <strong> Titre : </strong> </label>
-            <input type="text" id="title" name="title" 
+            <input type="text" id="post_title" name="post_title" 
                 value="<?php the_title();?>">
         </div>     
         
