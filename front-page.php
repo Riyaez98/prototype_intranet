@@ -20,9 +20,9 @@
                 <div class="card_atelier">
                     <h3><?php the_title(); ?></h3>
                     <div class="card_atelier--info">    
-                        <p>Date : <?php the_field('event_date'); ?></p>
-                        <p>Heure : <?php the_field('event_starttime'); ?></p>
-                        <p>Modératrice : <?php the_field('event_teacher')?></p>
+                        <p><strong>Date : </strong><?php the_field('event_date'); ?></p>
+                        <p><strong>Heure : </strong><?php the_field('event_starttime'); ?></p>
+                        <p><strong>Modératrice(s) : </strong><?php the_field('event_teacher');?></p>
                         <button onClick="window.location.href = '<?php echo the_permalink(); ?>'">
                             Modifier
                         </button>

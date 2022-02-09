@@ -20,9 +20,9 @@
                 <div class="card_atelier">
                     <h3><?php the_title(); ?></h3>
                     <div class="card_atelier--info">    
-                        <p>Courriel : <?php the_field('moderatrice_courriel'); ?></p>
-                        <p>Téléphone : <?php the_field('moderatrice_telephone'); ?></p>
-                        <p>Bio : <?php the_content(); ?></p>                        
+                        <p><strong>Courriel : </strong><?php the_field('moderatrice_courriel'); ?></p>
+                        <p><strong>Téléphone : </strong><?php the_field('moderatrice_telephone'); ?></p>
+                        <p><strong>Bio : </strong><?php the_content(); ?></p>                        
                     </div>
                 </div>
             <?php endwhile; ?>

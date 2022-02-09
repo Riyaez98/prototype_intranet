@@ -33,8 +33,30 @@
         </div>   
 
         <div class="info-atelier__item info-atelier__mod">
-            <label for="moderatrice"> <strong> Modératrice : </strong></label>
-             <input type="text" id="moderatrice" name="moderatrice" value="<?php the_field('event_teacher')?>">         
+            <label for="moderatrice"> <strong> Modératrice(s) : </strong></label>
+            <div>
+                <?php $noms = array("Elinor Fueter", "Maryse Carrier", "Rachel Harris");
+                    $selected = explode(", ", get_field('event_teacher'));
+                        $i=0;
+                    foreach($noms as $current_nom){
+                        $is_selected = false;
+                        foreach($selected as $selected_item){
+                            if($current_nom === $selected_item){
+                                $is_selected = true;
+                            }
+                        }
+                        if($is_selected) {
+                            echo "
+                                <div class='input__checkbox'>
+                                    <input type='checkbox' name='moderatrice[]' id='moderatrice" . $i . "' value='" . $current_nom . "'><label for='moderatrice" . $i . "'>" . $current_nom . "</label>
+                                </div>";
+                        } else {
+                            echo "<li>" . $current_nom  . " est pas selected</li>";
+                        } 
+                        $i++;                  
+                    }
+                ?>
+            </div>        
         </div> 
 
         <div class="info-atelier__item info-atelier__partner">
