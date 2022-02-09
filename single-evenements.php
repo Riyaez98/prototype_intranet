@@ -70,11 +70,43 @@ include(__DIR__ . '/update.php');
         <div class="info-atelier__item info-atelier__partner">
         <label for="partner"> <strong> Partenaire : </strong></label>
             <input type="text" id="partner" name="partner" value="<?php the_field('event_partner');?>">
+            <label class="input__label" for="province">Province</label>
+            <select name="province" id="province" class="input__element" required>
+                <option value="" hidden>Choisir une province</option>
+                <option value="qc">Quebec</option>
+                <option value="on">Ontario</option>
+                <option value="ab">Alberta</option>
+            </select>
         </div>  
 
-        <div class="info-atelier__item info-atelier__mod">
+        <div class="info-atelier__item info-atelier__exc">
             <label for="exercice"> <strong> Exercices : </strong></label>
-            <input type="text" id="exercice" name="exercice" value="<?php the_field('event_exercices')?>">         
+            <div>
+                <?php $exercices = array("Automassage", "Casse-tête", "Danse de l’arbre", "Écouter le groupe");
+                    $selected_exc = explode(", ", get_field('event_exercices'));
+                        $i=0;
+                    foreach($exercices as $current_exc){
+                        $exc_is_selected = false;
+                        foreach($selected_exc as $exc_selected){
+                            if($current_exc === $exc_selected){
+                                $exc_is_selected = true;
+                            }
+                        }
+                        if($exc_is_selected) {
+                            echo "
+                                <div class='input checkbox'>
+                                    <input type='checkbox' class='input__element' name='exercice[]' id='exercice" . $i . "' value='" . $current_exc . "' checked><label for='exercice" . $i . "' class='input__label'>" . $current_exc . "</label>
+                                </div>";
+                        } else {
+                            echo "
+                                <div class='input checkbox'>
+                                    <input type='checkbox' class='input__element' name='exercice[]' id='exercice" . $i . "' value='" . $current_exc . "'><label for='exercice" . $i . "' class='input__label'>" . $current_exc . "</label>
+                                </div>";
+                        } 
+                        $i++;                  
+                    }
+                ?>
+            </div>         
         </div> 
 
         <div class="info-atelier__item info-atelier__description">
