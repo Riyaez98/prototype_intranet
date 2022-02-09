@@ -63,6 +63,7 @@ body {
   background-color: #fff;
   color: #070708;
   font-family: "Poppins", sans-serif;
+  position: relative;
 }
 .app-container {
   width: 100%;
@@ -169,8 +170,13 @@ body {
   cursor: pointer;
 }
 
-h1 {
+h1, h2 {
   margin: 25px 0;
+  text-align: center;
+}
+
+h3{
+  margin: 10px 0;
   text-align: center;
 }
 .info-atelier{
@@ -192,12 +198,12 @@ select {
   margin: 0 10px;
   border: #2f3542 solid 1px;
   padding: 10px;
+  border-radius: 10px;
 }
 .info-atelier
 input,
 textarea{
   width: 250px;
-
 }
 
 .footer{
@@ -206,4 +212,11 @@ textarea{
   color:white;
   text-align: center;
   padding: 50px 0;
+  /* position: absolute;
+  bottom: 0;
+  width: 100%; */
+}
+
+main.wrapper{
+  min-height: calc(100vh - 295px);
 }
