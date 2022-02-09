@@ -68,14 +68,33 @@ include(__DIR__ . '/update.php');
         </div> 
 
         <div class="info-atelier__item info-atelier__partner">
-        <label for="partner"> <strong> Partenaire : </strong></label>
-            <input type="text" id="partner" name="partner" value="<?php the_field('event_partner');?>">
-            <label class="input__label" for="province">Province</label>
-            <select name="province" id="province" class="input__element" required>
-                <option value="" hidden>Choisir une province</option>
+            <!-- <label for="partner"></label>
+            <input type="text" id="partner" name="partner" value="<?php the_field('event_partner');?>"> -->
+            <label class="input__label" for="partner"><strong> Partenaire : </strong></label>
+            <select name="partner" id="partner" class="input__element">
+                <?php $partners = array("Partenaire 1", "Partenaire 2", "Partenaire 3", "Partenaire 4", "Partenaire 5"); 
+                    $is_the_partner=false;
+                    $i2=0;
+                    foreach($partners as $partner){
+                         if($partner === the_field('event_partner')){
+                            $is_the_partner = true;
+                        }
+                            if($is_the_partner) {
+                                echo "
+                                        <option value='" . $partner . "' selected>" . $partner . "</option>
+                                        ";
+                            } else {
+                                echo "
+                                <option value='" . $partner . "'>" . $partner . "</option>
+                                ";
+                            }
+                        $i2++;
+                    }
+                ?>
+                <!-- <option value="" hidden>Choisir une province</option>
                 <option value="qc">Quebec</option>
                 <option value="on">Ontario</option>
-                <option value="ab">Alberta</option>
+                <option value="ab">Alberta</option> -->
             </select>
         </div>  
 
@@ -84,7 +103,7 @@ include(__DIR__ . '/update.php');
             <div>
                 <?php $exercices = array("Automassage", "Casse-tête", "Danse de l’arbre", "Écouter le groupe");
                     $selected_exc = explode(", ", get_field('event_exercices'));
-                        $i=0;
+                        $i3=0;
                     foreach($exercices as $current_exc){
                         $exc_is_selected = false;
                         foreach($selected_exc as $exc_selected){
@@ -103,7 +122,7 @@ include(__DIR__ . '/update.php');
                                     <input type='checkbox' class='input__element' name='exercice[]' id='exercice" . $i . "' value='" . $current_exc . "'><label for='exercice" . $i . "' class='input__label'>" . $current_exc . "</label>
                                 </div>";
                         } 
-                        $i++;                  
+                        $i3++;                  
                     }
                 ?>
             </div>         
