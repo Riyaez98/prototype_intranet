@@ -24,3 +24,4 @@ $description = $_POST['description'];
 echo "<br>description : " . $description;
 // var_dump($description);
 
+var_dump($_POST);

@@ -33,7 +33,7 @@
         </div>   
 
         <div class="info-atelier__item info-atelier__mod">
-            <label for="moderatrice"> <strong> Modératrice(s) : </strong></label>
+            <label for="mode22ratrice"> <strong> Modératrice(s) : </strong></label>
             <div>
                 <?php $noms = array("Elinor Fueter", "Maryse Carrier", "Rachel Harris");
                     $selected = explode(", ", get_field('event_teacher'));
@@ -47,8 +47,8 @@
                         }
                         if($is_selected) {
                             echo "
-                                <div class='input__checkbox'>
-                                    <input type='checkbox' name='moderatrice[]' id='moderatrice" . $i . "' value='" . $current_nom . "'><label for='moderatrice" . $i . "'>" . $current_nom . "</label>
+                                <div class='input checkbox'>
+                                    <input type='checkbox' class='input__element' name='moderatrice[]' id='moderatrice" . $i . "' value='" . $current_nom . "'><label for='moderatrice" . $i . "' class='input__label'>" . $current_nom . "</label>
                                 </div>";
                         } else {
                             echo "<li>" . $current_nom  . " est pas selected</li>";
@@ -65,8 +65,8 @@
         </div>  
 
         <div class="info-atelier__item info-atelier__mod">
-            <label for="moderatrice"> <strong> Exercices : </strong></label>
-            <input type="text" id="moderatrice" name="moderatrice" value="<?php the_field('event_exercices')?>">         
+            <label for="exercice"> <strong> Exercices : </strong></label>
+            <input type="text" id="exercice" name="exercice" value="<?php the_field('event_exercices')?>">         
         </div> 
 
         <div class="info-atelier__item info-atelier__description">
