@@ -7,6 +7,7 @@
     <h1>Bienvenue <?php echo wp_get_current_user()->user_firstname; ?> dans l'intranet de
     <br>
     Dance contre la violence</h1>
+    <h2>Voici les ateliers crées</h2>
 
 </main>
 
