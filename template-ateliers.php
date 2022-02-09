@@ -23,10 +23,13 @@
                         <p>Date : <?php the_field('event_date'); ?></p>
                         <p>Heure : <?php the_field('event_starttime'); ?></p>
                         <?php $moder = get_field('event_teacher');
+                        // var_dump($moder);
                         if( $moder ): 
                         
                             $users_list = new WP_User_Query( array('exclude' => array()));?>
-                            
+                            <!-- <br>
+                            <br>
+                            <br> -->
                             <?php foreach ( $users_list->get_results() as $user ) {
                                 if($moder == $user->ID){?>
                                 <p>Modératrice : <?php echo $user->display_name;  ?></p>                                    

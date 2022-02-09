@@ -29,6 +29,7 @@ function custom_admin_menu($menu_ord){
     'separator1',                           // ----------------
     'edit.php?post_type=exercices',         // CPT Exercices
     'edit.php?post_type=evenements',        // CPT Évènement
+    'edit.php?post_type=moder',             // CPT Modératices
     'separator2',                           // ----------------
     'upload.php',                           // Média
     'edit.php?post_type=page',              // Pages

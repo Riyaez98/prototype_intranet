@@ -47,7 +47,6 @@
 
                     <nav class="header-navigation">
                         <div class="header-user">
-                                                                                <!-- On click logout user from wp -->
                             <button type="button" class="header-user_current" onClick="window.location.href = '<?php echo wp_logout_url(); ?>'">
                                 <span>Déconnecter <?php echo wp_get_current_user()->display_name; ?></span>
                                 <!-- <i class="fas fa-chevron-down"></i> -->
