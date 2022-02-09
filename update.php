@@ -11,13 +11,16 @@ if ( 'POST' == $_SERVER['REQUEST_METHOD'] && ! empty($_POST['post_id']) && ! emp
         $post = array(
             'ID'             => esc_sql($post_id),
             'post_content'   => "test",
-            'post_title'     => esc_sql($_POST['post_title'])
+            'post_title'     => esc_sql($_POST['post_title']),
         );
         $updatedPostID = wp_update_post($post);
                
 
+        if ( isset($_POST['event-date']) ) update_post_meta($post_id, 'event_date', esc_sql($_POST['event-date']) );
+        if ( isset($_POST['starttime']) ) update_post_meta($post_id, 'event_starttime', esc_sql($_POST['starttime']) );
+        if ( isset($_POST['endtime']) ) update_post_meta($post_id, 'event_endtime', esc_sql($_POST['endtime']) );
         if ( isset($_POST['partner']) ) update_post_meta($post_id, 'event_partner', esc_sql($_POST['partner']) );
-        // if ( isset($_POST['origin']) ) update_post_meta($post_id, 'origin', esc_sql($_POST['origin']) );
+
 
         // header("Location:" . $_SERVER['REQUEST_URI']);
         header("Location:" . home_url());
