@@ -283,3 +283,8 @@ main.wrapper{
   background-size: 50%;    
   border-radius: 3px;
 }
+.btn_modifier{
+  border: #2f3542 solid 1px;
+  background-color: #aacbf8;
+  padding: 5px 10px;
+}

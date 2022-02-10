@@ -23,7 +23,9 @@
                         <p><strong>Date : </strong><?php the_field('event_date'); ?></p>
                         <p><strong>Heure : </strong><?php the_field('event_starttime'); ?></p>
                         <p><strong>Modératrice(s) : </strong><?php the_field('event_teacher');?></p>
-                        <button onClick="window.location.href = '<?php echo the_permalink(); ?>'">
+                        <p><strong>Exercice(s) : </strong><?php the_field('event_exercices');?></p>
+                        <p><strong>Description : </strong><?php the_field('event_description');?></p>
+                        <button class="btn_modifier" onClick="window.location.href = '<?php echo the_permalink(); ?>'">
                             Modifier
                         </button>
                     </div>
