@@ -158,12 +158,12 @@ body {
   flex-direction: column;
 }
 .container_cards-atelier .card_atelier--info p {
-  margin: 5px 0;
+  margin: 10px 0;
 }
 
 .container_cards-atelier .card_atelier--info button {
   width: 50%;
-  margin: 5px 0;
+  margin: 5px auto;
 }
 
 .container_cards-atelier .card_atelier--info button:hover {
@@ -283,8 +283,14 @@ main.wrapper{
   background-size: 50%;    
   border-radius: 3px;
 }
-.btn_modifier{
+.btn_modifier, input[type="submit"]{
   border: #2f3542 solid 1px;
-  background-color: #aacbf8;
+  background-color: #dcebff;
   padding: 5px 10px;
+  border-radius: 10px;
+  transform: scale(1);
 }
+.btn_modifier:hover{
+  transform: scale(1.05);
+}
+

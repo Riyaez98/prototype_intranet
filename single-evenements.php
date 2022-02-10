@@ -139,7 +139,7 @@ include(__DIR__ . '/update.php');
             <label for="description"> <strong> Description : </strong></label>
                 <textarea class="input__element u-grid-fullwidth" id="description" name="description" rows="6" cols="25"><?php echo the_field('event_description');?></textarea>
         </div>        
-        <input type="submit" value="Submit">
+        <input type="submit" value="Modifier">
     </form>
 
 </main>
