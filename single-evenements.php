@@ -6,7 +6,7 @@ include(__DIR__ . '/update.php');
 
 <main class="wrapper">
 
-    <h1><?php the_title(); ?></h1>
+    <h1>Modifier l'atelier : <?php the_title(); ?></h1>
     
     <!-- https://www.w3schools.com/tags/att_input_value.asp  predefine value input -->
     <!-- <form  class="info-atelier" method="post" action="<?php bloginfo('template_url'); ?>/update.php"> -->
@@ -72,12 +72,19 @@ include(__DIR__ . '/update.php');
             <input type="text" id="partner" name="partner" value="<?php the_field('event_partner');?>"> -->
             <label class="input__label" for="partner"><strong> Partenaire : </strong></label>
             <select name="partner" id="partner" class="input__element">
-                <?php $partners = array("Partenaire 1", "Partenaire 2", "Partenaire 3", "Partenaire 4", "Partenaire 5"); 
-                    $is_the_partner=false;
+            
+                <?php
+                $partners = array("Partenaire 1", "Partenaire 2", "Partenaire 3", "Partenaire 4", "Partenaire 5"); 
                     $i2=0;
                     foreach($partners as $partner){
-                         if($partner === the_field('event_partner')){
+                    $is_the_partner=false;
+                        var_dump(get_field('event_partner'));
+
+                        var_dump($partner);
+                        echo "-------------------";
+                        if($partner == get_field('event_partner')){
                             $is_the_partner = true;
+                            echo "vrai";
                         }
                             if($is_the_partner) {
                                 echo "
@@ -114,12 +121,12 @@ include(__DIR__ . '/update.php');
                         if($exc_is_selected) {
                             echo "
                                 <div class='input checkbox'>
-                                    <input type='checkbox' class='input__element' name='exercice[]' id='exercice" . $i . "' value='" . $current_exc . "' checked><label for='exercice" . $i . "' class='input__label'>" . $current_exc . "</label>
+                                    <input type='checkbox' class='input__element' name='exercice[]' id='exercice" . $i3 . "' value='" . $current_exc . "' checked><label for='exercice" . $i3 . "' class='input__label'>" . $current_exc . "</label>
                                 </div>";
                         } else {
                             echo "
                                 <div class='input checkbox'>
-                                    <input type='checkbox' class='input__element' name='exercice[]' id='exercice" . $i . "' value='" . $current_exc . "'><label for='exercice" . $i . "' class='input__label'>" . $current_exc . "</label>
+                                    <input type='checkbox' class='input__element' name='exercice[]' id='exercice" . $i3 . "' value='" . $current_exc . "'><label for='exercice" . $i3 . "' class='input__label'>" . $current_exc . "</label>
                                 </div>";
                         } 
                         $i3++;                  
